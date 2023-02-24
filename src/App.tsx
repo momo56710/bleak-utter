@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Refine } from "@pankod/refine-core";
 import {
   notificationProvider,
@@ -9,13 +8,14 @@ import {
   ErrorComponent,
   AuthPage,
 } from "@pankod/refine-chakra-ui";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane,faLightbulb } from "@fortawesome/free-regular-svg-icons";
 import dataProvider from "@pankod/refine-simple-rest";
 import { ChakraUIInferencer } from "@pankod/refine-inferencer/chakra-ui";
 import routerProvider from "@pankod/refine-react-router-v6";
-import { Title, Sider, Layout, Header } from "components/layout";
+import { Title, Sider, Layout } from "components/layout";
 import { authProvider } from "./authProvider";
-
+import { Home, projetInnovant,Startups,editPi,readPI,createPI,createST } from "components/layout/Pages";
 function App() {
   return (
     <ChakraProvider theme={refineTheme}>
@@ -25,6 +25,23 @@ function App() {
         ReadyPage={ReadyPage}
         catchAll={<ErrorComponent />}
         resources={[
+          {
+            name: "ProjetInnovent",
+            show: readPI,
+            list: projetInnovant,
+            create : createPI,
+            edit : editPi,
+            options: { label: "projet innovent" },
+            icon: <FontAwesomeIcon icon={faLightbulb} />,
+            
+          },
+          {
+            name: "startups",
+            list: Startups,
+            create : createST,
+            options: { label: "Startups" },
+            icon: <FontAwesomeIcon icon={faPaperPlane} />,
+          },
           {
             name: "posts",
             list: ChakraUIInferencer,
@@ -37,10 +54,10 @@ function App() {
         Title={Title}
         Sider={Sider}
         Layout={Layout}
-        Header={Header}
         routerProvider={routerProvider}
         authProvider={authProvider}
         LoginPage={AuthPage}
+        DashboardPage={Home}
       />
     </ChakraProvider>
   );

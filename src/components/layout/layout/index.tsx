@@ -15,10 +15,8 @@ export const Layout: React.FC<LayoutProps> = ({
   const SiderToRender = Sider ?? DefaultSider;
   const HeaderToRender = Header ?? DefaultHeader;
 
-  const bg = useColorModeValue("gray.100", "gray.900");
-
   return (
-    <Box display="flex" bg={bg}>
+    <Box display="flex">
       <SiderToRender />
       <Box
         display="flex"

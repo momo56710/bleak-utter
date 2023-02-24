@@ -17,34 +17,6 @@ export const Header: React.FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Box
-      py="2"
-      px="4"
-      display="flex"
-      justifyContent="flex-end"
-      gap={2}
-      w="full"
-      bg="chakra-body-bg"
-    >
-      {showUserInfo && (
-        <HStack>
-          <Text size="sm" fontWeight="bold">
-            {user?.name}
-          </Text>
-          <Avatar size="sm" name={user?.name} src={user?.avatar} />
-        </HStack>
-      )}
-      <IconButton
-        variant="ghost"
-        aria-label="Toggle theme"
-        onClick={toggleColorMode}
-      >
-        <Icon
-          as={colorMode === "light" ? IconMoon : IconSun}
-          w="24px"
-          h="24px"
-        />
-      </IconButton>
-    </Box>
+<></>
   );
 };
